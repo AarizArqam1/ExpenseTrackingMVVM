@@ -3,7 +3,9 @@ package com.alnafay.expensetrackingmvvm.Screens
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Button
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Surface
@@ -20,6 +22,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
+import com.alnafay.expensetrackingmvvm.CustomComponents.ExpenseTextView
 import com.alnafay.expensetrackingmvvm.R
 
 @Composable
@@ -50,7 +53,7 @@ fun AddExpense(){
             ){
                 Image(painter = painterResource(id = R.drawable.ic_back), contentDescription = "", modifier = Modifier.align(
                     Alignment.CenterStart))
-                Text(text = "Add Expense",
+                ExpenseTextView(text = "Add Expense",
                     fontSize = 20.sp,
                     fontWeight = FontWeight.SemiBold,
                     color= Color.White,
@@ -78,7 +81,7 @@ fun TitleBar(modifier: Modifier){
     ){
         Image(painter = painterResource(id = R.drawable.ic_back), contentDescription = "", modifier = Modifier.align(
             Alignment.CenterStart))
-        Text(text = "Add Expense",
+        ExpenseTextView(text = "Add Expense",
             fontSize = 20.sp,
             fontWeight = FontWeight.SemiBold,
             color= Color.White,
@@ -99,20 +102,33 @@ fun DataForm(modifier: Modifier){
             .clip(RoundedCornerShape(16.dp))
             .background(Color.White)
             .padding(16.dp)
-            .wrapContentHeight()) {
-        Text(text = "Name",
-        fontSize = 14.sp,
-        color = Color.Gray)
-        Spacer(modifier = Modifier.size(4.dp))
-        OutlinedTextField(value = "", onValueChange = {}, modifier = Modifier.fillMaxWidth())
-        Spacer(modifier = Modifier.size(8.dp))
-        Text(text = "Amount",
+            .wrapContentHeight()
+            .verticalScroll(rememberScrollState())) {
+        ExpenseTextView(text = "Type",
             fontSize = 14.sp,
             color = Color.Gray)
         Spacer(modifier = Modifier.size(4.dp))
         OutlinedTextField(value = "", onValueChange = {}, modifier = Modifier.fillMaxWidth())
         Spacer(modifier = Modifier.size(8.dp))
-        Text(text = "Date",
+        ExpenseTextView(text = "Name",
+        fontSize = 14.sp,
+        color = Color.Gray)
+        Spacer(modifier = Modifier.size(4.dp))
+        OutlinedTextField(value = "", onValueChange = {}, modifier = Modifier.fillMaxWidth())
+        Spacer(modifier = Modifier.size(8.dp))
+        ExpenseTextView(text = "Category",
+            fontSize = 14.sp,
+            color = Color.Gray)
+        Spacer(modifier = Modifier.size(4.dp))
+        OutlinedTextField(value = "", onValueChange = {}, modifier = Modifier.fillMaxWidth())
+        Spacer(modifier = Modifier.size(8.dp))
+        ExpenseTextView(text = "Amount",
+            fontSize = 14.sp,
+            color = Color.Gray)
+        Spacer(modifier = Modifier.size(4.dp))
+        OutlinedTextField(value = "", onValueChange = {}, modifier = Modifier.fillMaxWidth())
+        Spacer(modifier = Modifier.size(8.dp))
+        ExpenseTextView(text = "Date",
             fontSize = 14.sp,
             color = Color.Gray)
         Spacer(modifier = Modifier.size(4.dp))
@@ -121,7 +137,7 @@ fun DataForm(modifier: Modifier){
         Button(onClick = { /*TODO*/ }, modifier = Modifier
             .clip(RoundedCornerShape(40.dp))
             .fillMaxWidth()) {
-            Text(text = "Add Expense",
+            ExpenseTextView(text = "Add Expense",
             color = Color.White,
             fontSize = 14.sp)
         }

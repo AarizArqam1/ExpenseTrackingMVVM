@@ -18,6 +18,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
+import com.alnafay.expensetrackingmvvm.CustomComponents.ExpenseTextView
 import com.alnafay.expensetrackingmvvm.R
 import com.alnafay.expensetrackingmvvm.ui.theme.zinc
 
@@ -43,11 +44,11 @@ fun HomeScreen(){
                     }
             ) {
                 Column {
-                    Text(text = "Good Morning",
+                    ExpenseTextView(text = "Good Morning",
                         fontSize = 16.sp,
                         color = Color.White
                     )
-                    Text(text = "Aariz Arqam",
+                    ExpenseTextView(text = "Aariz Arqam",
                         fontSize = 20.sp,
                         fontWeight = FontWeight.Bold,
                         color = Color.White
@@ -89,11 +90,11 @@ fun CardItem(modifier: Modifier){
             .fillMaxWidth()
             .weight(1F)) {
             Column(modifier = Modifier.align(Alignment.CenterStart)) {
-                Text(text = "Total Balance",
+                ExpenseTextView(text = "Total Balance",
                     fontSize = 16.sp,
                     color = Color.White)
 
-                Text(text = "PKR 100,000",
+                ExpenseTextView(text = "PKR 100,000",
                     fontSize = 20.sp,
                     fontWeight=FontWeight.Bold,
                     color = Color.White)
@@ -117,8 +118,8 @@ fun CardItem(modifier: Modifier){
 fun TransactionList(modifier: Modifier){
     Column(modifier.padding(horizontal = 16.dp)) {
         Box(modifier = Modifier.fillMaxWidth()){
-            Text(text = "Recent Transactions", fontSize = 20.sp)
-            Text(text = "See All",
+            ExpenseTextView(text = "Recent Transactions", fontSize = 20.sp)
+            ExpenseTextView(text = "See All",
             fontSize = 16.sp,
             modifier = Modifier.align(Alignment.CenterEnd))
         }
@@ -142,15 +143,15 @@ fun  TransactionItem(title: String,amount: String,icon:Int,date:String,color: Co
             modifier = Modifier.size(50.dp))
             Spacer(modifier = Modifier.width(8.dp))
             Column() {
-                Text(text = title,
+                ExpenseTextView(text = title,
                     fontSize = 16.sp,
-                    fontWeight = FontWeight.SemiBold)
-                Text(text = date,
+                    fontWeight = FontWeight.Medium)
+                ExpenseTextView(text = date,
                     fontSize = 12.sp)
             }
             //Spacer(modifier = Modifier.weight(1F))
         }
-        Text(text = amount,
+        ExpenseTextView(text = amount,
             fontSize = 20.sp,
             fontWeight = FontWeight.SemiBold,
             modifier = Modifier.align(Alignment.CenterEnd),
@@ -165,11 +166,11 @@ fun CardRowItem(modifier: Modifier,title:String,amount:String,image:Int){
         Row(){
             Image(painter = painterResource(id = image), contentDescription = "")
             Spacer(modifier = Modifier.size(8.dp))
-            Text(text = title,
+            ExpenseTextView(text = title,
                 fontSize = 16.sp,
                 color = Color.White)
         }
-        Text(text = "PKR "+amount,
+        ExpenseTextView(text = "PKR "+amount,
             fontSize = 20.sp,
             color = Color.White)
 
